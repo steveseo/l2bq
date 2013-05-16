@@ -29,7 +29,7 @@ import com.google.gson.Gson;
 import com.l2bq.logging.analysis.BigqueryFieldExporter;
 
 /**
- * @author Junki Kim(jkkim@playearth.co.kr)
+ * @author Junki Kim(wishoping@gmail.com)
  * @date 2013. 4. 29.
  */
 public class AppLogFieldExporter implements BigqueryFieldExporter {

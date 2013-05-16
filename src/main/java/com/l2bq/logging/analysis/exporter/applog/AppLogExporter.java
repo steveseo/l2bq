@@ -17,9 +17,7 @@
 package com.l2bq.logging.analysis.exporter.applog;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,11 +30,13 @@ import com.l2bq.logging.analysis.BigqueryFieldExporter;
 /**
  * User defined log(aka App Log) will be processed with AppLogExporter
  * 
- * [ App Log Format Exmaple ]
+ * - App Log Format Exmaple
  * 
  * [l2bq-sample/v1].<stdout>: AppLog	{"data":{"time":1368673858791,"accountId":"t4","playerId":1111,"langType":1,"clientVer":0,"osType":0},"type":"login"}
  * 
- * @author Junki Kim(jkkim@playearth.co.kr)
+ * @author Junki Kim(wishoping@gmail.com)
+ * @author Wooseok Seo(wooseok.seo@gmail.com)
+ * 
  * @date 2013. 4. 29.
  */
 public class AppLogExporter implements BigqueryFieldExporter {
