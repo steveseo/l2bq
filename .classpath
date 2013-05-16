@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/appengine-java-sdk-1.7.7"/>
+	<classpathentry kind="lib" path="lib/appengine-mapper.jar"/>
+	<classpathentry kind="lib" path="lib/google-api-services-bigquery-v2-rev18-1.7.2-beta.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
