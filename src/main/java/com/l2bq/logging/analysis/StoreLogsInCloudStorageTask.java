@@ -167,6 +167,6 @@ public class StoreLogsInCloudStorageTask extends HttpServlet {
 	}
 	
 	protected String getDefaultBigqueryFieldExporterSetBag() {
-		return "com.streak.logging.analysis.exporter.ExporterSetBag";
+		return "com.l2bq.logging.analysis.exporter.ExporterSetBag";
 	}
 }
