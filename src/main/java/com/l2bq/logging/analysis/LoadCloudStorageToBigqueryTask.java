@@ -199,6 +199,6 @@ public class LoadCloudStorageToBigqueryTask extends HttpServlet {
 	}
 	
 	protected String getDefaultBigqueryFieldExporterSetBag() {
-		return "com.streak.logging.analysis.exporters.BasicFieldExporterSetBag";
+		return "com.l2bq.logging.analysis.exporters.BasicFieldExporterSetBag";
 	}
 }
