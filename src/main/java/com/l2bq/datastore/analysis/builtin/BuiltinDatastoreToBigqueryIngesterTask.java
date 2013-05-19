@@ -120,7 +120,7 @@ public class BuiltinDatastoreToBigqueryIngesterTask extends HttpServlet {
 			
 			Bigquery bigquery = Bigquery.builder(HTTP_TRANSPORT, JSON_FACTORY)
 					.setHttpRequestInitializer(credential)
-					.setApplicationName("Streak Logs")
+					.setApplicationName("l2bq Logs")
 					.build();
 			
 			
