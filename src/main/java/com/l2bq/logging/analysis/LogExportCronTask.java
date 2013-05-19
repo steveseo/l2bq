@@ -118,16 +118,11 @@ public class LogExportCronTask extends HttpServlet {
 					)
 			);
 		}
+
+
+		// Now, we have ExporterSetBag to support multiple export sets.
 		for ( BigqueryFieldExporterSet exporterSet : exporterSetBag.getExporterSetList() )
 		{
-//			String bigqueryFieldExporterSet = req.getParameter(AnalysisConstants.BIGQUERY_FIELD_EXPORTER_SET_PARAM);
-//			if (!AnalysisUtility.areParametersValid(bigqueryFieldExporterSet)) {
-//				bigqueryFieldExporterSet = getDefaultBigqueryFieldExporterSet();
-//			}
-			// Instantiate the exporter set to detect errors before we spawn a bunch
-			// of tasks.
-//			BigqueryFieldExporterSet exporterSet = 
-//					AnalysisUtility.instantiateExporterSet(bigqueryFieldExporterSet);
 			String schemaHash = AnalysisUtility.computeSchemaHash(exporterSet);
 			
 			String queueName = req.getParameter(AnalysisConstants.QUEUE_NAME_PARAM);
@@ -161,8 +156,6 @@ public class LogExportCronTask extends HttpServlet {
 			for (long currentStartMs = lastEndMsSeen; currentStartMs + msPerFile <= endMs; currentStartMs += msPerFile) {
 				long tableStartMs = currentStartMs - currentStartMs % msPerTable;
 				long tableEndMs = tableStartMs + msPerTable;
-//				String tableName = AnalysisUtility.createLogKey(String.format("%s_%s", exporterSet.getPrefix(), schemaHash), tableStartMs, tableEndMs);
-//				tableName = tableName.replace(":", "").replace("-", "").replace(".", "");
 				String tableName = exporterSet.getPrefix();
 				
 				String schemaKey = AnalysisUtility.createSchemaKey(String.format("%s_%s", exporterSet.getPrefix(), schemaHash), currentStartMs, currentStartMs + msPerFile);
