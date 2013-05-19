@@ -137,11 +137,15 @@ public class LoadCloudStorageToBigqueryTask extends HttpServlet {
 		JobConfiguration config = new JobConfiguration();
 		JobConfigurationLoad loadConfig = new JobConfigurationLoad();
 		
+		// To save your logs from File Storage to Big Query,
+		// you must set the fully-qualified URIs that point to your data on Google Cloud Storage 
+		// More details on the following link
+		// https://developers.google.com/resources/api-libraries/documentation/bigquery/v2/java/latest/com/google/api/services/bigquery/model/JobConfigurationLoad.html#setSourceUris(java.util.List)
 		loadConfig.setSourceUris(urisToProcess);
 		loadConfig.set("allowQuotedNewlines", true);
 		
+		// You don't need to set shema everytime, but you should set schema at the first time.
 		TableSchema schema = new TableSchema();
-		// TODO(frew): Support for multiple schemas?
 		loadSchema(schemaBaseUri, schema);
 		loadConfig.setSchema(schema);
 		
