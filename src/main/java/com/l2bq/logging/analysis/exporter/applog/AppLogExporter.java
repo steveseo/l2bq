@@ -144,23 +144,23 @@ public class AppLogExporter implements BigqueryFieldExporter {
 		return time;
 	}
 	
-	protected Object getFieldLong(String fieldName) {
-		long longValue = 0;
+	protected Object getFieldInt(String fieldName) {
+		int intValue = 0;
 		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
 		try
 		{
 			JSONObject msgObj = new JSONObject(msg);
 			if (!msgObj.has("data"))
 				return null;
-			longValue = msgObj.getJSONObject("data").getLong(fieldName);
+			intValue = msgObj.getJSONObject("data").getInt(fieldName);
 		} catch (JSONException e)
 		{
 			return -1;
 		}
-		return longValue;
+		return intValue;
 	}
 	
-	protected Object getFieldDouble(String fieldName) {
+	protected Object getFieldFloat(String fieldName) {
 		double doubleValue = 0;
 		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
 		try
@@ -194,6 +194,23 @@ public class AppLogExporter implements BigqueryFieldExporter {
 		return stringValue;		
 	}
 
+	protected Object getFieldBoolean(String fieldName) {
+		boolean boolValue = false;
+		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
+		try
+		{
+			JSONObject msgObj = new JSONObject(msg);
+			if (!msgObj.has("data"))
+				return null;
+			boolValue = msgObj.getJSONObject("data").getBoolean(fieldName);
+		} catch (JSONException e)
+		{
+			return null;
+		}
+		
+		return boolValue;
+	}
+	
 	
 	@Override
 	public int getFieldCount() {
@@ -211,13 +228,16 @@ public class AppLogExporter implements BigqueryFieldExporter {
 			for(String fieldName:fieldNames) {
 				if (fieldName.equals(name)) {
 					if (fieldTypes[index].equals("integer")) {
-						return getFieldLong(name);
+						return getFieldInt(name);
 					}
 					else if (fieldTypes[index].equals("string")) {
 						return getFieldString(name);
 					}
-					else if (fieldTypes[index].equals("double")) {
-						return getFieldDouble(name);
+					else if (fieldTypes[index].equals("float")) {
+						return getFieldFloat(name);
+					}
+					else if (fieldTypes[index].equals("boolean")) {
+						return getFieldBoolean(name);
 					}
 				}
 				

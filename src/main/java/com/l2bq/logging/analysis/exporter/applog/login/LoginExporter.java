@@ -40,7 +40,7 @@ public class LoginExporter extends AppLogExporter {
 		typeName = "login";
 		
 		fieldNames = new String[]{
-				"time", "playerId", "accountId", "langType", "clientVer", "osType"
+				"time", "userId", "userName", "langType", "clientVer", "osType"
 			};
 		fieldTypes = new String[]{
 				"integer", "integer", "string", "integer", "string", "integer"	

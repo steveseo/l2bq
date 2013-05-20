@@ -8,10 +8,10 @@ public class SignupExporter extends AppLogExporter{
 		typeName = "signup";
 		
 		fieldNames = new String[]{
-				"accountId", "accountIdType", "accountName", "langType", "osType", "phone", "playerId", "tiem", "utcOffset", "uuid"
+				"time", "userId", "userType", "userName", "langType", "osType", "phone", "playerId", "tiem", "utcOffset", "uuid"
 			};
 		fieldTypes = new String[]{
-				"string", "integer", "string", "integer", "integer", "string", "integer", "integer", "integer", "string"	
+				"integer", "integer", "integer", "string", "integer", "integer", "string", "integer", "integer", "integer", "string"	
 			};
 	}
 }
