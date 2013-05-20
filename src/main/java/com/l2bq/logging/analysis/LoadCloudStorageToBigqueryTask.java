@@ -144,7 +144,7 @@ public class LoadCloudStorageToBigqueryTask extends HttpServlet {
 		loadConfig.setSourceUris(urisToProcess);
 		loadConfig.set("allowQuotedNewlines", true);
 		
-		// You don't need to set shema everytime, but you should set schema at the first time.
+		// You don't need to set schema every time, but you should set schema at the first time.
 		TableSchema schema = new TableSchema();
 		loadSchema(schemaBaseUri, schema);
 		loadConfig.setSchema(schema);
