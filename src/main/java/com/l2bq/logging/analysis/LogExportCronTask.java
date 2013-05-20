@@ -199,11 +199,11 @@ public class LogExportCronTask extends HttpServlet {
 	}
 	
 	protected String getDefaultBigqueryFieldExporterSet() {
-		return "com.streak.logging.analysis.exporter.http.HttpFieldExporterSet";
+		return "com.l2bq.logging.analysis.exporter.http.HttpFieldExporterSet";
 	}
 	
 	protected String getDefaultBigqueryFieldExporterSetBag() {
-		return "com.streak.logging.analysis.exporter.ExporterSetBag";
+		return "com.l2bq.logging.analysis.exporter.ExporterSetBag";
 	}
 	
 	protected String getDefaultQueueName() {
