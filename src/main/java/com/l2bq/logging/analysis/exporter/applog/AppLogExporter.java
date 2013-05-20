@@ -74,6 +74,8 @@ public class AppLogExporter implements BigqueryFieldExporter {
 				continue;
 			if ( !logMsg.toLowerCase().contains("applog"))
 				continue;
+			if ( logMsg.toLowerCase().contains("applog:"))
+				continue;
 			
 			String msg = logLine.getLogMessage().split("^.*AppLog" + LOG_DELIMETER)[1];
 			
