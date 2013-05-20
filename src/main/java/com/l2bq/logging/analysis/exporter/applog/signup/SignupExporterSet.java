@@ -12,7 +12,7 @@ public class SignupExporterSet implements BigqueryFieldExporterSet {
 	@Override
 	public List<BigqueryFieldExporter> getExporters() {
 		return Arrays.asList(
-				(BigqueryFieldExporter)new SignupExporterSet());
+				(BigqueryFieldExporter)new SignupExporter());
 	}
 	
 	@Override
