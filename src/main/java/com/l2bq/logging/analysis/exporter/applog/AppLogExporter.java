@@ -90,7 +90,8 @@ public class AppLogExporter implements BigqueryFieldExporter {
 				continue;
 			}
 			
-			logs.add(String.format("%d%s%s", logLine.getTimeUsec(), LOG_DELIMETER, msg) );
+//			logs.add(String.format("%d%s%s", logLine.getTimeUsec(), LOG_DELIMETER, msg) );
+			logs.add( msg );
 		}
 	}
 
@@ -146,7 +147,8 @@ public class AppLogExporter implements BigqueryFieldExporter {
 	
 	protected Object getFieldInt(String fieldName) {
 		int intValue = 0;
-		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
+//		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
+		String msg = logs.get(logIndex);
 		try
 		{
 			JSONObject msgObj = new JSONObject(msg);
@@ -162,7 +164,8 @@ public class AppLogExporter implements BigqueryFieldExporter {
 	
 	protected Object getFieldFloat(String fieldName) {
 		double doubleValue = 0;
-		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
+//		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
+		String msg = logs.get(logIndex);
 		try
 		{
 			JSONObject msgObj = new JSONObject(msg);
@@ -179,7 +182,8 @@ public class AppLogExporter implements BigqueryFieldExporter {
 	
 	protected Object getFieldString(String fieldName) {
 		String stringValue = "";
-		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
+//		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
+		String msg = logs.get(logIndex);
 		try
 		{
 			JSONObject msgObj = new JSONObject(msg);
@@ -196,7 +200,8 @@ public class AppLogExporter implements BigqueryFieldExporter {
 
 	protected Object getFieldBoolean(String fieldName) {
 		boolean boolValue = false;
-		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
+//		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
+		String msg = logs.get(logIndex);
 		try
 		{
 			JSONObject msgObj = new JSONObject(msg);
@@ -219,11 +224,11 @@ public class AppLogExporter implements BigqueryFieldExporter {
 
 	@Override
 	public Object getField(String name) {
-		if ( name.equals("time") )
-		{
-			return getTime();
-		} 
-		else {
+//		if ( name.equals("time") )
+//		{
+//			return getTime();
+//		} 
+//		else {
 			int index = 0;
 			for(String fieldName:fieldNames) {
 				if (fieldName.equals(name)) {
@@ -243,7 +248,7 @@ public class AppLogExporter implements BigqueryFieldExporter {
 				
 				index++;
 			}
-		}
+//		}
 		
 		return null;
 	}
