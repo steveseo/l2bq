@@ -72,12 +72,14 @@ public class AppLogExporter implements BigqueryFieldExporter {
 				continue;
 			if ( logLine.getLogLevel() != LogLevel.INFO )
 				continue;
-			if ( !logMsg.toLowerCase().contains("applog"))
-				continue;
-			if ( logMsg.toLowerCase().contains("applog:"))
-				continue;
+
+			String [] msgs = logLine.getLogMessage().split("^.*AppLog" + LOG_DELIMETER);
 			
-			String msg = logLine.getLogMessage().split("^.*AppLog" + LOG_DELIMETER)[1];
+			// If Log Parsing result is not valid, pass log data 
+			if ( msgs.length != 2 )
+				continue;
+
+			String msg = msgs[1];
 			
 			try
 			{
@@ -92,7 +94,6 @@ public class AppLogExporter implements BigqueryFieldExporter {
 				continue;
 			}
 			
-//			logs.add(String.format("%d%s%s", logLine.getTimeUsec(), LOG_DELIMETER, msg) );
 			logs.add( msg );
 		}
 	}
@@ -147,26 +148,24 @@ public class AppLogExporter implements BigqueryFieldExporter {
 		return time;
 	}
 	
-	protected Object getFieldInt(String fieldName) {
-		int intValue = 0;
-//		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
+	protected Object getFieldLong(String fieldName) {
+		long longValue = 0;
 		String msg = logs.get(logIndex);
 		try
 		{
 			JSONObject msgObj = new JSONObject(msg);
 			if (!msgObj.has("data"))
 				return null;
-			intValue = msgObj.getJSONObject("data").getInt(fieldName);
+			longValue = msgObj.getJSONObject("data").getLong(fieldName);
 		} catch (JSONException e)
 		{
 			return -1;
 		}
-		return intValue;
+		return longValue;
 	}
 	
 	protected Object getFieldFloat(String fieldName) {
 		double doubleValue = 0;
-//		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
 		String msg = logs.get(logIndex);
 		try
 		{
@@ -184,7 +183,6 @@ public class AppLogExporter implements BigqueryFieldExporter {
 	
 	protected Object getFieldString(String fieldName) {
 		String stringValue = "";
-//		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
 		String msg = logs.get(logIndex);
 		try
 		{
@@ -202,7 +200,6 @@ public class AppLogExporter implements BigqueryFieldExporter {
 
 	protected Object getFieldBoolean(String fieldName) {
 		boolean boolValue = false;
-//		String msg = logs.get(logIndex).split(LOG_DELIMETER)[1];
 		String msg = logs.get(logIndex);
 		try
 		{
@@ -226,31 +223,26 @@ public class AppLogExporter implements BigqueryFieldExporter {
 
 	@Override
 	public Object getField(String name) {
-//		if ( name.equals("time") )
-//		{
-//			return getTime();
-//		} 
-//		else {
-			int index = 0;
-			for(String fieldName:fieldNames) {
-				if (fieldName.equals(name)) {
-					if (fieldTypes[index].equals("integer")) {
-						return getFieldInt(name);
-					}
-					else if (fieldTypes[index].equals("string")) {
-						return getFieldString(name);
-					}
-					else if (fieldTypes[index].equals("float")) {
-						return getFieldFloat(name);
-					}
-					else if (fieldTypes[index].equals("boolean")) {
-						return getFieldBoolean(name);
-					}
+
+		int index = 0;
+		for(String fieldName:fieldNames) {
+			if (fieldName.equals(name)) {
+				if (fieldTypes[index].equals("integer")) {
+					return getFieldLong(name);
 				}
-				
-				index++;
+				else if (fieldTypes[index].equals("string")) {
+					return getFieldString(name);
+				}
+				else if (fieldTypes[index].equals("float")) {
+					return getFieldFloat(name);
+				}
+				else if (fieldTypes[index].equals("boolean")) {
+					return getFieldBoolean(name);
+				}
 			}
-//		}
+			
+			index++;
+		}
 		
 		return null;
 	}
