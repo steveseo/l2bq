@@ -8,6 +8,7 @@ l2bq - Log to Back Query
  - We developed this project to provide you a way to backup and analysis your app log in Google App Engine with your log system, even more without using Data Store.
  - This project is based on the Mache framework(https://github.com/StreakYC/mache). We found that the Mache framework is just for HTTP servlet request, not for App Logs.
  - To support processing user logs, we modified and updated the System Architecture and added new functions regarding Exporters.
+ - We built two projects. One is [l2bg](https://github.com/kevinseo/l2bq)(Java library project) and the other is [l2bq-sample](https://github.com/wishoping/l2bq-sample)(Google App Engine project).
  - [Source Analysis of mache project](https://drive.google.com/folderview?id=0Bxujl8fMG4jSamFvRGpHNkN5akU&usp=sharing)
  - [Update History](https://github.com/kevinseo/l2bq/wiki/%EC%A3%BC%EC%9A%94-%EA%B0%9C%EC%84%A0-%EC%82%AC%ED%95%AD)
 
@@ -286,6 +287,21 @@ In order to run your BigqueryFieldExporter, you will need to imlement a com.l2bq
  - **getExporters()** returns the list of BigqueryFieldExporters.
 
 You then pass the fully-qualified classname of the BigqueryFieldExporterSet as the *bigqueryFieldExporterSet* parameter to cron URL. For an example of the exporters, look at the exporters in the com.l2bq.logging.analysis.example package. 
+
+## Sample AppLog exporters
+There are two AppLog exporters which are com.l2bq.logging.analysis.exporter.applog.login.LoginExporter and com.l2bq.logging.analysis.exporter.applog.signup.SignupExporter. Those two exporters is for processing App Logs which is formatted like followings respectively.
+
+```
+AppLog  {"type":"login","data":{"time":1369028411681,"userId":42,"userName":"42","langType":0,"clientVer":"1.1.12","osType":0}}
+```
+
+```
+AppLog  {"type":"signup","data":{"time":1369028411681,"userId":42,"userType":1,"userName":"42","langType":0,"osType":0,"phone":"000-0000-0000","utcOffset":9}}
+```
+
+You should change the format in their constructors according to your logs. In the [l2bq-sample](https://github.com/wishoping/l2bq-sample) project, you can find out how to write logs.
+
+If you have different kind of log formats, you can build your own exporters including ExporterSet class.
 
 ## Changing the aggregation parameters
 Currently, splitting a single file between multiple tables is not supported, so
