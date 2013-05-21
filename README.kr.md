@@ -13,9 +13,12 @@ l2bq - 로그를 Back Query로
  - 사용자 로그를 처리하기 위해서 시스템 아키텍처를 개선하였으며 예제로 사용할 익스포터(Exporter)들을 추가하였습니다.
  - l2bq는 총 두개의 프로젝트로 구성되어 있습니다. 하나는 여러분이 보고 계시는 [l2bg](https://github.com/kevinseo/l2bq)(Java 라이브러리 프로젝트)이며, 다른 하나는 이 라이브러리의 사용 방법을 보여주기 위해 만든 [l2bq-sample](https://github.com/wishoping/l2bq-sample)(Google App Engine 프로젝트)입니다. l2bq는 kevinseo(wooseok.seo@gmail.com)이, l2bq-sample은 jkkim(wishoping@gmail.com)이 주 개발자로 등록되어 있습니다.
  - 간단히 말하자면, log4j 로그를 분석하는 도구입니다.
+ - 이 프로젝트는 Google App Engine 기반의 서버를 구축한 모바일 소셜 게임 회사에 관리자 도구를 만들어주기 위해 시작하게 되었습니다. 그런 이유로 l2bq-sample에서는 DAU와 MAU, Contention Rate와 같은 그래프를 확인할 수 있도록 예제를 구성하였습니다.
+ - 우리는 이 프로젝트가 고가의 분석 시스템을 구입/구축하기에 앞서 최소한의 노력으로 Google App Engine 기반의 로그 분석 시스템을 구축하는데 도움을 주기를 바라고 있습니다.
  - Mache Framework에 대해 친절하게 분석해 놓은 자료는 [Mache Framework의 구조 분석(jkkim 작성)](https://drive.google.com/folderview?id=0Bxujl8fMG4jSamFvRGpHNkN5akU&usp=sharing)에서 참고
  - Mache Framework로부터 개선한 내용은 [주요 개선 사항](https://github.com/kevinseo/l2bq/wiki/%EC%A3%BC%EC%9A%94-%EA%B0%9C%EC%84%A0-%EC%82%AC%ED%95%AD)을 참고
-
+ - 우리는 무엇보다도 이 프로젝트의 기반이 된 Mache Framework의 제작사인 Streak.com에 매우 감사하고 있습니다.
+ 
 # 무엇에 쓰는 물건인고?
 
 l2bq 프레임워크는 App Engine의 로그를 BigQuery로 익스포트하는 Java App Engine 라이브러리입니다. 프레임워크는 주기적으로 App Engine의 LogService로부터 로그를 BigQuery 테이블로 복사하는 cron 작업으로 구성되어 있으며, 사용자가 임의로 로그 파일들을 분석하여 BigQuery 테이블에 저장할 수 있는 방법을 제공합니다.
