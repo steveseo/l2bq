@@ -11,6 +11,7 @@ l2bq - Log to Back Query
  - This project is based on the Mache framework(https://github.com/StreakYC/mache). We found that the Mache framework is just for HTTP servlet request, not for App Logs.
  - To support processing user logs, we modified and updated the System Architecture and added new functions regarding Exporters.
  - We built two projects. One is [l2bg](https://github.com/kevinseo/l2bq)(Java library project) and the other is [l2bq-sample](https://github.com/wishoping/l2bq-sample)(Google App Engine project).
+ - Simply use log4j in your App Logs.
  - [Source Analysis of mache project](https://drive.google.com/folderview?id=0Bxujl8fMG4jSamFvRGpHNkN5akU&usp=sharing)
  - [Update History](https://github.com/kevinseo/l2bq/wiki/%EC%A3%BC%EC%9A%94-%EA%B0%9C%EC%84%A0-%EC%82%AC%ED%95%AD)
 
