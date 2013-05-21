@@ -1,6 +1,8 @@
 l2bq - Log to Back Query
 
-# Live Demo
+ [Korean](https://github.com/kevinseo/l2bq/blob/master/README.kr.md)
+
+# Live Demo 
  - If you are first time user, please visit demo site at the following link.
  - [Live Demo](http://l2bq-test.appspot.com/)
 
@@ -314,8 +316,7 @@ The only currently supported change that will not lose data is changing
 
 # Building/Contributing
 The Eclipse project will automatically use your installed App Engine SDK.
-To build the jar, add your App Engine SDK directory to edit-to-build.properties,
-and rename it to build.properties. Run ant to build.
+
 
 # Exporting Datastore Entities to BigQuery
 We've been working on this functionality or a little bit of time but recently Google launched the ability for you to import datastore backups into BigQuery. The feature however is a manual process. l2bq has built the ability for you to automatically kickoff backups of desired entity kinds and automatically start BigQuery ingestion jobs when the backup is complete. 
