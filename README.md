@@ -9,6 +9,7 @@ l2bq - Log to Back Query
  - This project is based on the Mache framework(https://github.com/StreakYC/mache). We found that the Mache framework is just for HTTP servlet request, not for App Logs.
  - To support processing user logs, we modified and updated the System Architecture and added new functions regarding Exporters.
  - [Source Analysis of mache project](https://drive.google.com/folderview?id=0Bxujl8fMG4jSamFvRGpHNkN5akU&usp=sharing)
+ - [Update History](https://github.com/kevinseo/l2bq/wiki/%EC%A3%BC%EC%9A%94-%EA%B0%9C%EC%84%A0-%EC%82%AC%ED%95%AD)
 
 # What is this?
 
@@ -38,7 +39,7 @@ task queue task:
 
 In graphical form, we can see a sample set of cron runs below:
 
-![Sample run graph](https://github.com/l2bq.C/mache/raw/master/mache_diagram.png)
+![Sample run graph](https://github.com/streakYC/mache/raw/master/mache_diagram.png)
 
 The graph has time of the logs being processed as the y-axis (running from top
 to bottom), and the stage of processing as the x-axis (running from left to
