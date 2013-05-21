@@ -16,7 +16,7 @@ l2bq - Log to Back Query
  - [Update History](https://github.com/kevinseo/l2bq/wiki/%EC%A3%BC%EC%9A%94-%EA%B0%9C%EC%84%A0-%EC%82%AC%ED%95%AD)
 
 # What is this?
-
+[From Mache]
 The l2bq framework is a Java App Engine library that makes it easy
 to export your App Engine application logs to BigQuery for analysis. It
 consists of a cron task that periodically copies data from the App Engine
@@ -25,6 +25,7 @@ log files into BigQuery columns.
 
 # How does it work?
 
+[From Mache]
 App Engine provides access to logs for each request through the
 [LogService API](https://developers.google.com/appengine/docs/java/logservice/).
 The framework starts from a cron job that runs fairly often (the timing is
@@ -65,6 +66,7 @@ of restrictions on the *msPerTable* and *msPerFile* parameters, see the
 "Changing the aggregation parameters" section.
 
 ## Exporting to Cloud Storage 
+[From Mache]
 The initial task (StoreLogsInCloudStorageTask) iterates over each request log
 from the LogService. It uses a set of user-defined exporters to parse each log
 into a CSV line, which it then outputs to Google Cloud Storage. The timeslice
@@ -81,6 +83,7 @@ information. See the "Writing your own exporter" section for the details of
 adding exporters specific to your application's logs.
 
 ## Loading to BigQuery
+[From Mache]
 The second task (LoadCloudStorageToBigqueryTask) initiates a BigQuery load job
 for the CSV file. Since the BigQuery clients currently make querying from
 multiple tables somewhat painful, the framework provides support for aggregating
@@ -238,6 +241,7 @@ $ gsutil setacl bucket.acl gs://{bucket name}
 1. Go to the Google APIs console at https://code.google.com/apis/console/, select the Google Cloud Storage tab, and make note of the number following "x-goog-project-id:". This is your Goole APIs project ID.
 
 # Test and Productionize
+[From Mache]
 ## Test the cron task
 Test by going to:  
 http://{your appid}.appspot.com/logging/logExportCron?bucketName={bucket name}&bigqueryProjectId={your Google APIs project id}&bigqueryDatasetId={your bigquery dataset id}
@@ -254,6 +258,7 @@ Add an entry to your cron.xml file. If you change the *msPerFile* parameter (see
 ```
 
 # Customizing the export
+[From Mache]
 ## Parameters for logExportCron
 Configuration of the export process is done through a series of parameters that are passed as query string arguments to the logExportCron servlet (see the previous section for a description of how to set up the cron.xml entry to pass these parameters). Note that you have to escape ampersands in cron.xml, but not if you're manually accessing the URL in your browser.
 
@@ -316,6 +321,7 @@ The only currently supported change that will not lose data is changing
 *msPerFile* to a value that divides its previous value.
 
 # Building/Contributing
+[From Mache]
 The Eclipse project will automatically use your installed App Engine SDK.
 
 
@@ -330,4 +336,4 @@ We've been working on this functionality or a little bit of time but recently Go
 
 You can put this call in your cron.xml to have the bigquery tables updated periodically. Checkout the documentation in <code>BuiltinDatastoreExportConfiguration</code>.
 
-* This project is based on the Mache framework(https://github.com/StreakYC/mache)
+* This project is started from the Mache framework(https://github.com/StreakYC/mache)
