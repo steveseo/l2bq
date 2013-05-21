@@ -87,7 +87,6 @@ public class AnalysisUtility {
 	}
 
 	public static String createLogKey(String schemaHash, long startTime, long endTime) {
-//		return String.format("log_%s_%020d_%020d", schemaHash, startTime, endTime);
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd-HH:mm:ss.SSS");
 		sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
 		Calendar cal = Calendar.getInstance();
@@ -95,7 +94,6 @@ public class AnalysisUtility {
 	    String startTimeStr =  sdf.format(cal.getTime());
 	    cal.setTimeInMillis(endTime);
 	    String endTimeStr = sdf.format(cal.getTime());
-//		return String.format("%s_%020d_%020d", schemaHash, startTime, endTime);
 	    return String.format("%s_%s_%s", schemaHash, startTimeStr, endTimeStr);
 	}
 
@@ -107,7 +105,6 @@ public class AnalysisUtility {
 		String[] keyParts = key.split("_");
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd-HH:mm:ss.SSS", Locale.KOREA);
 		sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
-//		return Long.parseLong(keyParts[keyParts.length - 1]);
 		try
 		{
 			return sdf.parse(keyParts[keyParts.length - 1]).getTime();
