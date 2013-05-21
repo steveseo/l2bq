@@ -12,6 +12,7 @@ l2bq - 로그를 Back Query로
  - 이 프로젝트는 Mache framework(https://github.com/StreakYC/mache)에서부터 시작되었고, Mache Framework가 HTTP 서블릿 요청만을 기록하는 제약사항을 넘어서기 위해 만들었습니다. 해당 프로젝트에 직접적으로 기여하는 방법도 생각해 보았지만 우리가 생각하는 방향과 다를 수 있을것 같아 별도의 프로젝트를 유지하기로 결정하였습니다.
  - 사용자 로그를 처리하기 위해서 시스템 아키텍처를 개선하였으며 예제로 사용할 익스포터(Exporter)들을 추가하였습니다.
  - l2bq는 총 두개의 프로젝트로 구성되어 있습니다. 하나는 여러분이 보고 계시는 [l2bg](https://github.com/kevinseo/l2bq)(Java 라이브러리 프로젝트)이며, 다른 하나는 이 라이브러리의 사용 방법을 보여주기 위해 만든 [l2bq-sample](https://github.com/wishoping/l2bq-sample)(Google App Engine 프로젝트)입니다. l2bq는 kevinseo(wooseok.seo@gmail.com)이, l2bq-sample은 jkkim(wishoping@gmail.com)이 주 개발자로 등록되어 있습니다.
+ - 간단히 말하자면, log4j 로그를 분석하는 도구입니다.
  - Mache Framework에 대해 친절하게 분석해 놓은 자료는 [Mache Framework의 구조 분석(jkkim 작성)](https://drive.google.com/folderview?id=0Bxujl8fMG4jSamFvRGpHNkN5akU&usp=sharing)에서 참고
  - Mache Framework로부터 개선한 내용은 [주요 개선 사항](https://github.com/kevinseo/l2bq/wiki/%EC%A3%BC%EC%9A%94-%EA%B0%9C%EC%84%A0-%EC%82%AC%ED%95%AD)을 참고
 
