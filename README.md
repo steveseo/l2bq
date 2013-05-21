@@ -12,6 +12,7 @@ l2bq - Log to Back Query
  - To support processing App Log lines, we modified and updated the System Architecture and added new features including Exporters.
  - We are buidling two projects. One is [l2bg](https://github.com/kevinseo/l2bq)(Java library project) and the other is [l2bq-sample](https://github.com/wishoping/l2bq-sample)(Google App Engine project).
  - Simply use log4j in your App Logs.
+ - Thank you very much for your hard works, Streak.com!
  - We started this project to build a administrator system for a mobile social game. So you can view Daily Active Users, Monthly Active users, and Contention Rate on the l2bq-sample site.
  - [Source Analysis of mache project](https://drive.google.com/folderview?id=0Bxujl8fMG4jSamFvRGpHNkN5akU&usp=sharing)
  - [Update History](https://github.com/kevinseo/l2bq/wiki/%EC%A3%BC%EC%9A%94-%EA%B0%9C%EC%84%A0-%EC%82%AC%ED%95%AD)
