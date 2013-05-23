@@ -5,7 +5,7 @@ l2bq - 로그를 Back Query로
 
 # 데모 화면
  - 이 프로젝트가 무엇을 하는지 잘 모르겠는 분을 위해서 데모 사이트를 준비했습니다.
- - [데모 화면](http://l2bq-test.appspot.com/)
+ - [데모 사이트](http://l2bq-test.appspot.com/dashboard/index.html)
 
 # 프로젝트 설명
  - 이 프로젝트는 구글 앱 엔진을 사용하여 서블릿이 남기는 App Log를 통해 로그 분석 시스템을 구축하고자 하는 팀을 위한 Java로 작성된 라이브러리입니다.
