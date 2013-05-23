@@ -4,7 +4,7 @@ l2bq - Log to Back Query
 
 # Live Demo 
  - If you are first time user, please visit demo site at the following link.
- - [Live Demo](http://l2bq-test.appspot.com/)
+ - [Live Demo](http://l2bq-test.appspot.com/dashboard/index.html)
 
 # Project Description
  - We developed this project to provide you a way to backup and analysis your app log in Google App Engine with your log system, even more without using Data Store.
