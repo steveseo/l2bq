@@ -46,7 +46,7 @@ task queue task:
 
 In graphical form, we can see a sample set of cron runs below:
 
-![Sample run graph](https://github.com/streakYC/mache/raw/master/mache_diagram.png)
+![Sample run graph](https://raw.github.com/kevinseo/l2bq/master/mache_diagram.png)
 
 The graph has time of the logs being processed as the y-axis (running from top
 to bottom), and the stage of processing as the x-axis (running from left to
