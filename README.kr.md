@@ -34,7 +34,7 @@ Google App Engine에서 [LogService API](https://developers.google.com/appengine
 
 이 과정을 도식화하면 다음과 같습니다.
 
-![실행 과정](https://github.com/streakYC/mache/raw/master/mache_diagram.png)
+![실행 과정](https://github.com/kevinseo/l2bq/blob/master/mache_diagram.png)
 
 그래프에서 Y축은 로그가 처리되는 시간(위에서 아래로 증가)이며, X축은 처리 단계(왼쪽에서 오른쪽으로 실행)입니다. 각각의 cron 작업(왼쪽 끝 열)은 마지막으로 익스포트된 이후로 지난 시간을 나타냅니다. 만약 충분한 시간이 지났다면(*msPerFile* 매개 변수로 정의한 값. 예제에서는 2000ms), 새로운 익스포트 작업을 실행할 준비가 되어, cron 작업은 그동안 쌓이 로그를 CSV 파일로 기록하기 위해 새로운 *storeLogsInCloudStorage* 작업을 시작합니다. 이 작업은 다음 단계에서 생성한 CSV 파일을 BigQuery로 로드하기 위해 *loadCloudStorageToBigquery* 작업을 시작합니다.
 
