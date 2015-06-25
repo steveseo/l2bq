@@ -1,4 +1,4 @@
-l2bq - 로그를 Back Query로
+l2bq - 로그를 Big Query로
 
 # 한글판 읽어보기 / [English](https://github.com/kevinseo/l2bq/blob/master/README.md)
  - 영어로 아무리 내용을 작성한다고 한들 한글만큼 그 뜻을 제대로 전달하기가 어려워 한글로 도움말을 작성
